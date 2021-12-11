@@ -1,0 +1,32 @@
+{
+  "name": "@no-more-fighting/server",
+  "version": "1.0.0",
+  "description": "Server for No More Fighting",
+  "main": "build/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/No-More-Fighting/server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/No-More-Fighting/server/issues"
+  },
+  "homepage": "https://github.com/No-More-Fighting/server#readme",
+  "private": true,
+  "dependencies": {
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.12.0-beta.2",
+    "socket.io": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "@types/validator": "^13.7.0",
+    "typescript": "^4.5.3"
+  },
+  "type": "module"
+}
