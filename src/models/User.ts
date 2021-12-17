@@ -1,7 +1,7 @@
 import sequelize, { _nn, _d } from "../sequelize";
 import { Op, Model, DataTypes } from "sequelize";
 
-export default class User extends Model {
+class User extends Model {
 	
 	// Raw data
 	public id!: number
@@ -69,3 +69,5 @@ User.init({
 }, { sequelize })
 
 User.sync();
+
+export default User;
