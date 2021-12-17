@@ -17,12 +17,17 @@ class User extends Model {
 	public orbs!: number
 	public shards!: number
 	
+	// Abilities
+	public knowsGrenades!: boolean
+
 	// Levels
 	public prestiges!: number
 	public swordLevel!: number
 	public swordMax!: number
 	public companionLevel!: number
 	public companionMax!: number
+	public grenadesLevel!: number
+	public grenadesMax!: number
 
 	// Stats
 	public attackMult!: number
@@ -44,10 +49,7 @@ User.init({
 		type: new DataTypes.STRING(128),
 		allowNull: false
 	},
-	admin: {
-		type: DataTypes.BOOLEAN,
-		defaultValue: false
-	},
+	admin: _d(DataTypes.BOOLEAN, false),
 
 	// Currencies
 	money: _d(DataTypes.INTEGER.UNSIGNED, 0),
@@ -56,12 +58,17 @@ User.init({
 	spheres: _d(DataTypes.INTEGER.UNSIGNED, 0),
 	shards: _d(DataTypes.INTEGER.UNSIGNED, 0),
 	
+	// Abilities
+	knowsGrenades: _d(DataTypes.BOOLEAN, false),
+
 	// Levels
 	prestiges: _d(DataTypes.INTEGER.UNSIGNED, 0),
 	swordLevel: _d(DataTypes.INTEGER.UNSIGNED, 1),
 	swordMax: _d(DataTypes.INTEGER.UNSIGNED, 5),
 	companionLevel: _d(DataTypes.INTEGER.UNSIGNED, 1),
 	companionMax: _d(DataTypes.INTEGER.UNSIGNED, 5),
+	grenadesLevel: _d(DataTypes.INTEGER.UNSIGNED, 0),
+	grenadesMax: _d(DataTypes.INTEGER.UNSIGNED, 2),
 
 	// Stats
 	attackMult: _d(DataTypes.INTEGER.UNSIGNED, 1),
