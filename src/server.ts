@@ -1,10 +1,14 @@
 import { Server } from "socket.io";
-import { Socket } from "./Socket.js"
-
-const io = new Server(+(process.env.PORT || 3000))
+import { createServer } from "http";
+import express, { static } from "express";
+import { Socket } from "./Socket.js";
+const app = express();
+const http = createServer(app);
+const io = new Server(http)
+app.use(static("../client"))
 
 io.on("connection", sock => {
 	new Socket(sock, io).init();
 });
 
-io.listen(+(process.env.PORT || 3000));
+http.listen(+(process.env.PORT || 3000));
