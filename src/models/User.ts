@@ -14,7 +14,7 @@ export default class User extends Model {
 	public money!: number
 	public trophy!: number
 	public rubies!: number
-	public spheres!: number
+	public orbs!: number
 	public shards!: number
 	
 	// Levels
