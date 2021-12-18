@@ -10,7 +10,7 @@ app.use(static("../client"))
 //#endregion
 
 io.on("connection", sock => {
-	new Socket(sock, io).init();
+    new Socket(sock, io).init();
 });
 
 http.listen(+(process.env.PORT || 3000));
