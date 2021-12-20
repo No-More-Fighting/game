@@ -74,7 +74,7 @@ User.init({
     attackMult: _d(DataTypes.INTEGER.UNSIGNED, 1),
     healthMult: _d(DataTypes.INTEGER.UNSIGNED, 1)
 }, { sequelize, paranoid: true })
-/*  */
+
 User.sync();
 
 export default User;

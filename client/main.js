@@ -1,3 +1,4 @@
+/// <reference path="types.d.ts">
 /// <reference path="globals.d.ts">
 // @ts-check
 
@@ -17,14 +18,21 @@ function waitForEvent(el, ev) {
     })
 }
 
+/**
+ * @typedef {{
+ *  name: string,
+ *  x: number,
+ *  y: number,
+ *  el: HTMLElement
+ * }} Player
+ */
+
 (async () => {
     alert("turkey")
 
-    const SERVER = location.hostname === "nmfs.herokuapp.com" ? "nmfs.herokuapp.com" : location.hostname + ":3000";
-    console.log(SERVER);
+    const socket = io()
 
-    const socket = io(SERVER)
-
+    /** @type {Record<string, Player>} */
     const playerMap = {};
 
     socket.on("join", (id, name) => {
@@ -51,6 +59,10 @@ function waitForEvent(el, ev) {
     });
 
     socket.on("leave", (id) => {
+        if (!playerMap[id]) return console.warn("Player left and never joined: %s", id)
+        /** @type {HTMLElement} */
+        let el = playerMap[id].el
+        el.remove()
         delete playerMap[id]
     });
 
